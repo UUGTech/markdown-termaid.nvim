@@ -77,6 +77,7 @@ require("markdown_termaid").setup({
   border = "rounded",
   auto_install = false,
   install_commands = {
+    { "uv", "tool", "install", "termaid" },
     { "python3", "-m", "pip", "install", "--user", "termaid" },
     { "pip3", "install", "--user", "termaid" },
     { "pip", "install", "--user", "termaid" },

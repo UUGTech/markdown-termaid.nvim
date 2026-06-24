@@ -29,7 +29,7 @@ SETUP                                                *markdown-termaid-setup*
 With lazy.nvim:
 >
 {
-  "OWNER/markdown-termaid.nvim",
+  "UUGTech/markdown-termaid.nvim",
   ft = { "markdown" },
   cmd = { "TermaidPreview" },
   main = "markdown_termaid",

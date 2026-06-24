@@ -1,0 +1,89 @@
+*markdown-termaid.nvim* Mermaid ASCII previews for Markdown
+
+==============================================================================
+CONTENTS                                        *markdown-termaid-contents*
+
+1. Introduction                                |markdown-termaid-introduction|
+2. Setup                                       |markdown-termaid-setup|
+3. Commands                                    |markdown-termaid-commands|
+4. hover.nvim                                  |markdown-termaid-hover|
+
+==============================================================================
+INTRODUCTION                                *markdown-termaid-introduction*
+
+markdown-termaid.nvim previews Markdown Mermaid fenced blocks as ASCII diagrams
+through the `termaid` CLI.
+
+Place the cursor inside a fenced block like this:
+>
+```mermaid
+graph TD
+  A --> B
+```
+<
+Then run |:TermaidPreview|.
+
+==============================================================================
+SETUP                                                *markdown-termaid-setup*
+
+With lazy.nvim:
+>
+{
+  "yourname/markdown-termaid.nvim",
+  ft = { "markdown" },
+  cmd = { "TermaidPreview" },
+  main = "markdown_termaid",
+  opts = {
+    keymaps = {
+      preview = "<leader>ma",
+    },
+  },
+}
+<
+
+Defaults:
+>
+require("markdown_termaid").setup({
+  cmd = { "termaid" },
+  ascii = true,
+  border = "rounded",
+  auto_install = false,
+  command = "TermaidPreview",
+  keymaps = {
+    preview = nil,
+  },
+  integrations = {
+    hover = false,
+  },
+  hover = {
+    name = "Mermaid",
+    priority = 1100,
+  },
+})
+<
+
+==============================================================================
+COMMANDS                                         *markdown-termaid-commands*
+
+                                                        *:TermaidPreview*
+:TermaidPreview
+    Preview the Mermaid fenced block under the cursor.
+
+==============================================================================
+HOVER                                                *markdown-termaid-hover*
+
+The plugin provides a hover.nvim provider. Require it from hover.nvim's init
+callback:
+>
+require("hover").setup({
+  init = function()
+    require("hover.providers.lsp")
+    require("markdown_termaid.hover")
+  end,
+})
+<
+
+The provider name is "Mermaid".
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:

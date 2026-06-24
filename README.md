@@ -15,7 +15,7 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
 {
-  "yourname/markdown-termaid.nvim",
+  "OWNER/markdown-termaid.nvim",
   ft = { "markdown" },
   cmd = { "TermaidPreview" },
   main = "markdown_termaid",
